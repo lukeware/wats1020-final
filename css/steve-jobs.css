@@ -24,7 +24,7 @@ body, ul, table, form{
 #canvas{
 	width: 960px;
 	height: 600px;
-	margin: 100px auto;
+	margin: 50px auto; /*changed from 100 px to 50 */
 }
 
 #book-zoom{

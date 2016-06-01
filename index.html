@@ -1,294 +1,130 @@
 <!doctype html>
-<!--[if lt IE 7 ]> <html lang="en" class="ie6"> <![endif]-->
-<!--[if IE 7 ]>    <html lang="en" class="ie7"> <![endif]-->
-<!--[if IE 8 ]>    <html lang="en" class="ie8"> <![endif]-->
-<!--[if IE 9 ]>    <html lang="en" class="ie9"> <![endif]-->
-<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
-<head>
-<script type="text/javascript" src="extras/jquery.min.1.7.js"></script>
-<script type="text/javascript" src="extras/jquery-ui-1.8.20.custom.min.js"></script>
-<script type="text/javascript" src="extras/jquery.mousewheel.min.js"></script>
-<script type="text/javascript" src="extras/modernizr.2.5.3.min.js"></script>
-<script type="text/javascript" src="lib/hash.js"></script>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Steve Jobs by Walter Isaacson</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-<link rel="stylesheet" href="css/bootstrap.min.css">
-</head>
-<body>
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <style>
+            body {
+                padding-top: 50px;
+                padding-bottom: 20px;
+            }
+        </style>
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+        <link rel="stylesheet" href="css/main.css">
 
-<div id="canvas">
-	<div id="book-zoom">
-		<div class="sj-book">
-			<div depth="5" class="hard"> <div class="side"></div> </div>
-			<div depth="5" class="hard front-side"> <div class="depth"></div> </div>
-			<div class="own-size"></div>
-			<div class="own-size even"></div>
-			<div class="hard fixed back-side p111"> <div class="depth"></div> </div>
-			<div class="hard p112"></div>
-		</div>
-	</div>
-	<div id="slider-bar" class="turnjs-slider">
-		<div id="slider"></div>
-	</div>
-</div>
+        <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Steve Jobs by Walter Isaacon</a>
+        </div>
 
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#home">Home</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">About <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li class="description-menu"><a href="#description">Description</a></li>
+                <li class="history-menu"><a href="#history">History</a></li>
+                <li class="stats-menu"><a href="#stats">Stats</a></li>
+              </ul>
+            </li>
+            <li><a href="#map">Map</a></li>
+            <li><a href="book.html">Book</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    </div>
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+        
+										<div class="jumbotron">
+											<h1 class="text-center">New Book Demo</h1>
+											<a href="book.html"><img src="pics/steve-jobs-cover.jpg" src="/book.html" class="img-responsive center-block" alt="Steve Jobs Book Cover"></a>          
+										</div>
+  
+  
+    <div class="container center">
+      <blockquote>
+        &ldquo;We made the buttons on the screen look so good you'll want to lick them.&rdquo;
+        <br>
+        &mdash; Steve Jobs
+      </blockquote>
+   
+      
+      <!-- create boostrap tabs -->
+      <div id="about" role="tabpanel">
 
-<script type="text/javascript">
+        <ul class="nav nav-tabs">
+          <li class="active description-tab"><a data-toggle="tab" href="#description">Steve Jobs</a></li>
+          <li class="history-tab"><a data-toggle="tab" href="#history">Walter Isaacson</a></li>
+          <li class="stats-tab"><a data-toggle="tab" href="#stats">Statistics</a></li>
+        </ul>
 
-function loadApp() {
-	
-	var flipbook = $('.sj-book');
+        <div class="tab-content">
+          <div id="description" class="tab-pane fade in active">
+            <p>This riveting new book about Steve Jobs will something something dark side. </p>
+          </div>
 
-	// Check if the CSS was already loaded
-	
-	if (flipbook.width()==0 || flipbook.height()==0) {
-		setTimeout(loadApp, 10);
-		return;
-	}
-
-	// Mousewheel
-
-	$('#book-zoom').mousewheel(function(event, delta, deltaX, deltaY) {
-
-		var data = $(this).data(),
-			step = 30,
-			flipbook = $('.sj-book'),
-			actualPos = $('#slider').slider('value')*step;
-
-		if (typeof(data.scrollX)==='undefined') {
-			data.scrollX = actualPos;
-			data.scrollPage = flipbook.turn('page');
-		}
-
-		data.scrollX = Math.min($( "#slider" ).slider('option', 'max')*step,
-			Math.max(0, data.scrollX + deltaX));
-
-		var actualView = Math.round(data.scrollX/step),
-			page = Math.min(flipbook.turn('pages'), Math.max(1, actualView*2 - 2));
-
-		if ($.inArray(data.scrollPage, flipbook.turn('view', page))==-1) {
-			data.scrollPage = page;
-			flipbook.turn('page', page);
-		}
-
-		if (data.scrollTimer)
-			clearInterval(data.scrollTimer);
-		
-		data.scrollTimer = setTimeout(function(){
-			data.scrollX = undefined;
-			data.scrollPage = undefined;
-			data.scrollTimer = undefined;
-		}, 1000);
-
-	});
-
-	// Slider
-
-	$( "#slider" ).slider({
-		min: 1,
-		max: 100,
-
-		start: function(event, ui) {
-
-			if (!window._thumbPreview) {
-				_thumbPreview = $('<div />', {'class': 'thumbnail'}).html('<div></div>');
-				setPreview(ui.value);
-				_thumbPreview.appendTo($(ui.handle));
-			} else
-				setPreview(ui.value);
-
-			moveBar(false);
-
-		},
-
-		slide: function(event, ui) {
-
-			setPreview(ui.value);
-
-		},
-
-		stop: function() {
-
-			if (window._thumbPreview)
-				_thumbPreview.removeClass('show');
-			
-			$('.sj-book').turn('page', Math.max(1, $(this).slider('value')*2 - 2));
-
-		}
-	});
-
-
-	// URIs
-	
-	Hash.on('^page\/([0-9]*)$', {
-		yep: function(path, parts) {
-
-			var page = parts[1];
-
-			if (page!==undefined) {
-				if ($('.sj-book').turn('is'))
-					$('.sj-book').turn('page', page);
-			}
-
-		},
-		nop: function(path) {
-
-			if ($('.sj-book').turn('is'))
-				$('.sj-book').turn('page', 1);
-		}
-	});
-
-	// Arrows
-
-	$(document).keydown(function(e){
-
-		var previous = 37, next = 39;
-
-		switch (e.keyCode) {
-			case previous:
-
-				$('.sj-book').turn('previous');
-
-			break;
-			case next:
-				
-				$('.sj-book').turn('next');
-
-			break;
-		}
-
-	});
-
-
-	// Flipbook
-
-	flipbook.bind(($.isTouch) ? 'touchend' : 'click', zoomHandle);
-
-	flipbook.turn({
-		elevation: 50,
-		acceleration: !isChrome(),
-		autoCenter: true,
-		gradients: true,
-		duration: 1000,
-		pages: 112,
-		when: {
-			turning: function(e, page, view) {
-				
-				var book = $(this),
-					currentPage = book.turn('page'),
-					pages = book.turn('pages');
-
-				if (currentPage>3 && currentPage<pages-3) {
-				
-					if (page==1) {
-						book.turn('page', 2).turn('stop').turn('page', page);
-						e.preventDefault();
-						return;
-					} else if (page==pages) {
-						book.turn('page', pages-1).turn('stop').turn('page', page);
-						e.preventDefault();
-						return;
-					}
-				} else if (page>3 && page<pages-3) {
-					if (currentPage==1) {
-						book.turn('page', 2).turn('stop').turn('page', page);
-						e.preventDefault();
-						return;
-					} else if (currentPage==pages) {
-						book.turn('page', pages-1).turn('stop').turn('page', page);
-						e.preventDefault();
-						return;
-					}
-				}
-
-				updateDepth(book, page);
-				
-				if (page>=2)
-					$('.sj-book .p2').addClass('fixed');
-				else
-					$('.sj-book .p2').removeClass('fixed');
-
-				if (page<book.turn('pages'))
-					$('.sj-book .p111').addClass('fixed');
-				else
-					$('.sj-book .p111').removeClass('fixed');
-
-				Hash.go('page/'+page).update();
+        <div id="history" class="tab-pane fade">
+				<p>
+					Walter Isaacson FRSA (born May 20, 1952)[2] is an American writer and journalist. He is the President and CEO of the Aspen Institute, a nonpartisan educational and policy studies organization based in Washington, D.C. He has been the chairman and CEO of Cable News Network (CNN) and the Managing Editor of Time. He has written biographies of Steve Jobs, Benjamin Franklin, Albert Einstein, and Henry Kissinger.</p>
+					</p>
+        </div>
 					
-			},
+					<div id="stats" class="tab-pane fade">
+					<p>
+						Simon & Schuster, Inc., a division of CBS Corporation, is a publisher founded in New York City in 1924 by Richard L. Simon and M. Lincoln ("Max") Schuster. It is one of the largest English-language publishers, formerly known as the "Big 6", now known as the "Big Five". It publishes over 2,000 titles annually under 35 different imprints.</p>
+						</p>
+        </div>
+	
+      </div>
+    </div>
 
-			turned: function(e, page, view) {
-
-				var book = $(this);
-
-				if (page==2 || page==3) {
-					book.turn('peel', 'br');
-				}
-
-				updateDepth(book);
-				
-				$('#slider').slider('value', getViewNumber(book, page));
-
-				book.turn('center');
-
-			},
-
-			start: function(e, pageObj) {
-		
-				moveBar(true);
-
-			},
-
-			end: function(e, pageObj) {
-			
-				var book = $(this);
-
-				updateDepth(book);
-
-				setTimeout(function() {
-					
-					$('#slider').slider('value', getViewNumber(book));
-
-				}, 1);
-
-				moveBar(false);
-
-			},
-
-			missing: function (e, pages) {
-
-				for (var i = 0; i < pages.length; i++) {
-					addPage(pages[i], $(this));
-				}
-
-			}
-		}
-	});
+      <div id="map">
+        <h2>Map</h2>
+        <!-- map inserted here -->
+        <div id="map-container"></div>
+      </div>
 
 
-	$('#slider').slider('option', 'max', numberOfViews(flipbook));
+      <hr>
 
-	flipbook.addClass('animated');
+      <footer>
+        <p>Made by Luke in 2016 as part of the WebDev Certificate Program at Seattle University. This page uses images and text from <a href="http://en.wikipedia.org/wiki/Mount_Rainier">The Wikipedia Mt. Rainier Page</a>.</p>
+      </footer>
+    </div> <!-- /container -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
 
-	// Show canvas
+        <script src="js/vendor/bootstrap.min.js"></script>
+        <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
 
-	$('#canvas').css({visibility: ''});
-}
+        <script src="js/main.js"></script>
 
-// Hide canvas
 
-$('#canvas').css({visibility: 'hidden'});
-
-// Load turn.js
-
-yepnope({
-	test : Modernizr.csstransforms,
-	yep: ['lib/turn.min.js'],
-	nope: ['lib/turn.html4.min.js', 'css/jquery.ui.html4.css', 'css/steve-jobs-html4.css'],
-	both: ['js/steve-jobs.js', 'css/jquery.ui.css', 'css/steve-jobs.css'],
-	complete: loadApp
-});
-
-</script>
-
-</body>
+    </body>
 </html>
+
