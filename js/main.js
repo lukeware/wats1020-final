@@ -36,8 +36,8 @@ $(document).ready(function() {
     
 
     //Map popup markers
-    var marker = L.marker([37.331850, -122.029623]).addTo(map);
-        marker.bindPopup('<b>Apple HQ</b><br>One Infinite Loop, Apple headquarters. <br><a href="https://en.wikipedia.org/wiki/Apple_Campus">Read More!</a>');
+    var marker = L.marker([37.478227, -122.232354]).addTo(map);
+        marker.bindPopup('<b>NeXT Headquarters</b><br>After leaving Apple, Jobs started NeXT, the company that would develop Apples future. <br><a href="book.html#page/43">Read More!</a>');
     
 	var marker = L.marker([37.751921, -122.479085]).addTo(map);
 				marker.bindPopup('<b>San Francisco</b><br>Birthplace of Steve Jobs, February 24th, 1955. <br><a href="book.html#page/10">Read about it!</a>');
