@@ -5,7 +5,7 @@ $(document).ready(function() {
     
     
     //Draw a map in map-container
-    var map = L.map('map-container').setView([37.331850, -122.029623], 8);
+    var map = L.map('map-container').setView([37.524658, -122.303798], 8);
 	
     
 	var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
@@ -35,25 +35,33 @@ $(document).ready(function() {
         satLayer.addTo(map);
     
 
-    //show markers with popups at no fewer than 3 interesting locations.
+    //Map popup markers
     var marker = L.marker([37.331850, -122.029623]).addTo(map);
         marker.bindPopup('<b>Apple HQ</b><br>One Infinite Loop, Apple headquarters. <br><a href="https://en.wikipedia.org/wiki/Apple_Campus">Read More!</a>');
     
-    var marker = L.marker([46.845757, -121.767565]).addTo(map);
-        marker.bindPopup('<b>Point Success</b><br>Elevation: 14,164 feet (4,300 m)');
-    
-    var marker = L.marker([46.869047, -121.517128]).addTo(map);
-        marker.bindPopup('<b>Tipsoo Lake</b><br>Elevation: 5,290 ft (1,612 m)');
-    
-    var marker = L.marker([46.785836, -121.735372]).addTo(map);
-        marker.bindPopup('<b>Paradise</b><br>Elevation: 5,400 ft (1,645 m)');
+	var marker = L.marker([37.751921, -122.479085]).addTo(map);
+				marker.bindPopup('<b>San Francisco</b><br>Birthplace of Steve Jobs, February 24th, 1955. <br><a href="book.html#page/10">Read about it!</a>');
+	
+	var marker = L.marker([37.484704, -122.230579]).addTo(map);
+				marker.bindPopup('<b>Byte Shop</b><br>Paul Terrel at Bye Shop was the first company to order the Macintosh. <br><a href="book.html#page/22">Read about it!</a>');
+		
+	var marker = L.marker([37.777907, -122.417442]).addTo(map);
+				marker.bindPopup('<b>San Francisco Civic Auditorium</b><br>Home of the West Coast Computer Faire, this is where Jobs showed the world the Apple II.<br><a href="book.html#page/28">Read about it!</a>');
+	
+	var marker = L.marker([37.402540, -122.148109]).addTo(map);
+				marker.bindPopup('<b>Xerox PARC</b><br>Steve Jobs visisted this research lab in 1979 and that experienced changed computing forever.<br><a href="book.html#page/35">Read about it!</a>');
+	
+
+	
+	
+	
  
-    var circle = L.circle([46.927725, -121.493720], 1000, {
-        color: 'red',
-        fillColor: '#f03',
-        fillOpacity: 0.5,
-        }).addTo(map);
-        circle.bindPopup('<b>Crystal Mountain Ski Resort</b>');
+//     var circle = L.circle([46.927725, -121.493720], 1000, {
+//         color: 'red',
+//         fillColor: '#f03',
+//         fillOpacity: 0.5,
+//         }).addTo(map);
+//         circle.bindPopup('<b>Crystal Mountain Ski Resort</b>');
   
 	
 	

@@ -12,12 +12,12 @@
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
         <link rel="stylesheet" href="css/bootstrap.min.css">
-        <style>
+<!--         <style>
             body {
                 padding-top: 50px;
                 padding-bottom: 20px;
             }
-        </style>
+        </style> -->
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
         <link rel="stylesheet" href="css/main.css">
@@ -28,93 +28,119 @@
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-    <nav class="navbar navbar-inverse">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Steve Jobs by Walter Isaacon</a>
-        </div>
+   <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">Steve Jobs by Walter Isaacson</a>
+            </div>
 
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#home">Home</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">About <span class="caret"></span></a>
-              <ul class="dropdown-menu" role="menu">
-                <li class="description-menu"><a href="#description">Description</a></li>
-                <li class="history-menu"><a href="#history">History</a></li>
-                <li class="stats-menu"><a href="#stats">Stats</a></li>
-              </ul>
-            </li>
-            <li><a href="#map">Map</a></li>
-            <li><a href="book.html">Book</a></li>
-          </ul>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a class="page-scroll" href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#about">About</a>
+                    </li>
+
+                    <li>
+                        <a class="page-scroll" href="#map">Map</a>
+                    </li>
+									 </li>
+                    <li>
+                        <a class="page-scroll" href="book.html">Book Demo</a>
+                    </li>
+							      <li>
+                        <a class="page-scroll" href="#bio">Author</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
         </div>
-      </div>
-    </nav>
-    </div>
-    <!-- Main jumbotron for a primary marketing message or call to action -->
-        
-										<div class="jumbotron">
+        <!-- /.container -->
+    </nav>	
+			
+			<!-- Intro Section -->
+			   <section id="intro" class="intro-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
 											<h1 class="text-center">New Book Demo</h1>
-											<a href="book.html"><img src="pics/steve-jobs-cover.jpg" src="/book.html" class="img-responsive center-block" alt="Steve Jobs Book Cover"></a>          
-										</div>
-  
-  
-    <div class="container center">
-      <blockquote>
-        &ldquo;We made the buttons on the screen look so good you'll want to lick them.&rdquo;
-        <br>
-        &mdash; Steve Jobs
-      </blockquote>
-   
-      
-      <!-- create boostrap tabs -->
-      <div id="about" role="tabpanel">
-
-        <ul class="nav nav-tabs">
-          <li class="active description-tab"><a data-toggle="tab" href="#description">Steve Jobs</a></li>
-          <li class="history-tab"><a data-toggle="tab" href="#history">Walter Isaacson</a></li>
-          <li class="stats-tab"><a data-toggle="tab" href="#stats">Statistics</a></li>
-        </ul>
-
-        <div class="tab-content">
-          <div id="description" class="tab-pane fade in active">
-            <p>This riveting new book about Steve Jobs will something something dark side. </p>
-          </div>
-
-        <div id="history" class="tab-pane fade">
-				<p>
-					Walter Isaacson FRSA (born May 20, 1952)[2] is an American writer and journalist. He is the President and CEO of the Aspen Institute, a nonpartisan educational and policy studies organization based in Washington, D.C. He has been the chairman and CEO of Cable News Network (CNN) and the Managing Editor of Time. He has written biographies of Steve Jobs, Benjamin Franklin, Albert Einstein, and Henry Kissinger.</p>
-					</p>
+									<p>
+										Click the image below to read a sample of Walter Isaacson's Steve Jobs!
+									</p>
+											<a href="book.html"><img src="pics/steve-jobs-cover.jpg" src="/book.html" class="img-responsive center-block" alt="Steve Jobs Book Cover"></a>	
+								</div>
+            </div>
         </div>
-					
-					<div id="stats" class="tab-pane fade">
-					<p>
-						Simon & Schuster, Inc., a division of CBS Corporation, is a publisher founded in New York City in 1924 by Richard L. Simon and M. Lincoln ("Max") Schuster. It is one of the largest English-language publishers, formerly known as the "Big 6", now known as the "Big Five". It publishes over 2,000 titles annually under 35 different imprints.</p>
-						</p>
+    </section>
+			 <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>About the Biography</h1>
+									<p>
+										Steve Jobs is the authorized biography of Steve Jobs. The biography was written at the request of Jobs by acclaimed biographer Walter Isaacson, a former executive at CNN and Time who has written best-selling biographies about Benjamin Franklin and Albert Einstein. Based on more than forty interviews with Jobs conducted over two years—in addition to interviews with more than one hundred family members, friends, adversaries, competitors, and colleagues—Isaacson was given "exclusive and unprecedented" access to Jobs's life. Jobs is said to have encouraged the people interviewed to speak honestly. Although Jobs cooperated with the book, he asked for no control over its content other than the book's cover, and waived the right to read it before it was published.
+									</p>
+                </div>
+            </div>
         </div>
+    </section>
+			 <!-- Map Section -->
+    <section id="map" class="map-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Places From the Biography</h1>
+									<p>
+										This interactive map highlights important places from Steve Jobs life and links to the corresponding pages about those places in the biography.
+									</p>
+									        <!-- map inserted here -->
+        						<div id="map-container"></div>
+                </div>
+            </div>
+        </div>
+    </section>			
+			 <!-- Bio Section -->
+
+    <!-- Author Section -->
+		<section id="bio" class="bio-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+									<h1>Walter Isaacson</h1>
+									<p>
+										Walter Isaacson FRSA (born May 20, 1952) is an American writer and journalist. He is the President and CEO of the Aspen Institute, a nonpartisan educational and policy studies organization based in Washington, D.C. He has been the chairman and CEO of Cable News Network (CNN) and the Managing Editor of Time. He has written biographies of Steve Jobs, Benjamin Franklin, Albert Einstein, and Henry Kissinger. <a href="https://en.wikipedia.org/wiki/Walter_Isaacson">Source: Wikipedia</a>
+									</p>
+									<img src="pics/walter-isaacson.JPG" class="img-responsive center-block" alt="Steve Jobs Book Cover">
+                </div>
+            </div>
+        </div>
+    </section>	
 	
-      </div>
-    </div>
-
-      <div id="map">
-        <h2>Map</h2>
-        <!-- map inserted here -->
-        <div id="map-container"></div>
-      </div>
-
-
-      <hr>
-
+    <!-- Footer Section -->
+			<section id="footer" class="footer-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
       <footer>
-        <p>Made by Luke in 2016 as part of the WebDev Certificate Program at Seattle University. This page uses images and text from <a href="http://en.wikipedia.org/wiki/Mount_Rainier">The Wikipedia Mt. Rainier Page</a>.</p>
+        <p>This is a demo page made by Luke Ware in 2016 as part of the WebDev Certificate Program at Seattle University. This page is not affiliated with Steve Jobs, Apple, or Walter Isaacson.  This page takes advantage of HTML5, Boostrap, CSS, Leafletjs, JQuery, modernizr, and TurnJS. </p>
       </footer>
+                </div>
+            </div>
+        </div>
+    </section>
+			
     </div> <!-- /container -->
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
@@ -123,8 +149,6 @@
         <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
 
         <script src="js/main.js"></script>
-
-
     </body>
 </html>
 
